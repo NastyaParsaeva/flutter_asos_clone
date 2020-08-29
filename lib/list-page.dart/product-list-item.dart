@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class ProductListItem extends StatelessWidget {
@@ -14,15 +13,12 @@ class ProductListItem extends StatelessWidget {
       shadowColor: Colors.transparent,
       child: Column(
         children: [
-          Image(
-              image: NetworkImage(
-                  '//images.asos-media.com/products/atlasnoe-plate-maksi-s-tsvetochnym-printom-asos-edition/14563661-1-multi')),
+          Image(image: NetworkImage(product.imageUrl)),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                // this.product.price,
-                '5555 руб.',
+                this.product.price,
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 12,
@@ -30,10 +26,9 @@ class ProductListItem extends StatelessWidget {
               ),
               IconButton(
                 icon: Icon(
-                  Icons.favorite_border,
-                  // this.product.isFavorited
-                  //     ? Icons.favorite_border
-                  //     : Icons.favorite,
+                  this.product.isFavorited
+                      ? Icons.favorite_border
+                      : Icons.favorite,
                   color: Colors.white,
                 ),
                 onPressed: () => debugPrint('item favorited'),
@@ -41,8 +36,7 @@ class ProductListItem extends StatelessWidget {
             ],
           ),
           Text(
-            // this.product.name,
-            'stupid name',
+            this.product.name,
             style: TextStyle(
               color: Colors.white,
               fontSize: 12,
@@ -62,5 +56,5 @@ class ProductListItemType {
   bool isFavorited;
 
   ProductListItemType(
-      {int id, String name, String price, String imageUrl, bool isFavorited});
+      {this.id, this.name, this.price, this.imageUrl, this.isFavorited});
 }
