@@ -45,22 +45,37 @@ class ProductDetailsScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                Row(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                          border: Border.symmetric(
-                              vertical: BorderSide(
-                                  width: 1, color: Color(0xff525050)))),
-                      child: Text(
-                        product.color,
-                        style: TextStyle(color: Colors.white),
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  decoration: BoxDecoration(
+                    //TODO: change to Divider
+                    border: Border.symmetric(
+                        vertical:
+                            BorderSide(width: 1, color: Color(0xff525050))),
+                  ),
+                  child: Flex(
+                    direction: Axis.horizontal,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          product.color,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
-                    ),
-                    Text(product.size.toString(),
-                        style: TextStyle(color: Colors.white)),
-                  ],
-                )
+                      Expanded(
+                        child: Text(product.size.toString(),
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            )),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
