@@ -1,12 +1,21 @@
+import 'package:asos_clone/screens/list-page/list-page.dart';
+import 'package:asos_clone/screens/product-details/product-details-screen.dart';
 import 'package:flutter/material.dart';
 
-import 'list-page.dart/list-page.dart';
-
 void main() {
-  runApp(MyApp());
+  // runApp(AsosCloneApp());
+  runApp(MaterialApp(
+    title: 'Asos clone app',
+    initialRoute: '/product-list',
+    onGenerateRoute: (settings) {},
+    routes: {
+      '/product-list': (context) => ListPage(),
+      ProductDetailsScreen.routeName: (context) => ProductDetailsScreen(),
+    },
+  ));
 }
 
-class MyApp extends StatelessWidget {
+class AsosCloneApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
