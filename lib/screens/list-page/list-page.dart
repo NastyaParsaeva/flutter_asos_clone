@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:asos_clone/screens/list-page/product-list-item.dart';
 import 'package:asos_clone/screens/list-page/product-list.dart';
 import 'package:flutter/material.dart';
@@ -97,13 +99,13 @@ class ListPage extends StatelessWidget {
         title: Text('Новинки: одежда'),
         leading: BackButton(),
         actions: [
-          Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Icon(Icons.favorite_border),
+          IconButton(
+            icon: Icon(Icons.favorite_border),
+            onPressed: () => {log('open wishlist')},
           ),
-          Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Icon(Icons.search),
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () => {log('search')},
           ),
         ],
         backgroundColor: Color(0xff333333),
