@@ -1,5 +1,4 @@
-import 'dart:developer';
-
+import 'package:asos_clone/consts/MyColors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -27,14 +26,14 @@ class ProductDetailsPicture extends StatelessWidget {
           backgroundColor: Colors.transparent,
           shadowColor: Colors.transparent,
           leading: BackButton(
-            color: Color(0xff000000),
+            color: MyColors.black,
             onPressed: onBackClick,
           ),
           actions: [
             IconButton(
               icon: Icon(
                 Icons.share,
-                color: Color(0xff000000),
+                color: MyColors.black,
               ),
               onPressed: onShareClick,
             )

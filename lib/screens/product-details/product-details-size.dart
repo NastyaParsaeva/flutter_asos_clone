@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:asos_clone/consts/MyColors.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailsSize extends StatelessWidget {
@@ -25,7 +26,7 @@ class ProductDetailsSize extends StatelessWidget {
               child: Text(
                 sizeValue,
                 style: TextStyle(
-                  color: isSizesEmpty ? Color(0xff999999) : Colors.white,
+                  color: isSizesEmpty ? MyColors.disabledGray : MyColors.white,
                   fontWeight: FontWeight.bold,
                 ),
               ),

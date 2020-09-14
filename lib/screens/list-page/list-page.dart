@@ -1,9 +1,10 @@
 import 'dart:developer';
 
+import 'package:asos_clone/common/my-app-bar.dart';
+import 'package:asos_clone/consts/MyColors.dart';
 import 'package:asos_clone/screens/list-page/product-list-item.dart';
 import 'package:asos_clone/screens/list-page/product-list.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 class ListPage extends StatelessWidget {
   List<ProductListItemType> _products() {
@@ -110,9 +111,10 @@ class ListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Новинки: одежда'),
-        leading: BackButton(),
+      appBar: MyAppBar(
+        titleText: 'Новинки: одежда',
+        leading: IconButton(
+            icon: Icon(Icons.menu), onPressed: () => {log('menu click')}),
         actions: [
           IconButton(
             icon: Icon(Icons.favorite_border),
@@ -123,12 +125,11 @@ class ListPage extends StatelessWidget {
             onPressed: () => {log('search')},
           ),
         ],
-        backgroundColor: Color(0xff333333),
       ),
       body: ProductList(
         products: _products(),
       ),
-      backgroundColor: Color(0xff000000),
+      backgroundColor: MyColors.black,
     );
   }
 }

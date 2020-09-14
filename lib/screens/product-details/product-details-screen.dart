@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:asos_clone/consts/MyColors.dart';
 import 'package:asos_clone/screens/list-page/product-list-item.dart';
 import 'package:asos_clone/screens/product-details/product-details-picture.dart';
 import 'package:asos_clone/screens/product-details/product-details-size-picker.dart';
@@ -8,8 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
-  static const routeName = '/product';
-
   @override
   _ProductDetailsScreenState createState() => _ProductDetailsScreenState();
 }
@@ -31,7 +30,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               onShareClick: () => {log('share product from details')},
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(15, 15, 15, 0),
+              padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -54,7 +53,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                     ),
                   ),
                   Divider(
-                    color: Color(0xff525050),
+                    color: MyColors.dividerGray,
                     height: 20,
                     thickness: 1,
                     indent: 0,
@@ -68,7 +67,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         child: Text(
                           product.color.toUpperCase(),
                           style: TextStyle(
-                            color: Color(0xff999999),
+                            color: MyColors.disabledGray,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -76,7 +75,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       Container(
                           height: 25,
                           child: VerticalDivider(
-                            color: Color(0xff525050),
+                            color: MyColors.dividerGray,
                             width: 20,
                             thickness: 1,
                             indent: 0,
@@ -90,7 +89,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                     ],
                   ),
                   Divider(
-                    color: Color(0xff525050),
+                    color: MyColors.dividerGray,
                     height: 20,
                     thickness: 1,
                     indent: 0,
@@ -104,7 +103,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         flex: 1,
                         child: MaterialButton(
                           onPressed: () => log('add to cart pressed'),
-                          color: Color(0xff018849),
+                          color: MyColors.green,
                           child: Text(
                             'Добавить в корзину'.toUpperCase(),
                             style: TextStyle(
@@ -115,7 +114,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         ),
                       ),
                       IconButton(
-                        color: Color(0xffeeeeee),
+                        color: MyColors.white,
                         icon: Icon(
                           Icons.favorite_border,
                           color: Colors.white,
@@ -125,14 +124,20 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                     ],
                   ),
                   Divider(
-                    color: Color(0xff525050),
+                    color: MyColors.dividerGray,
                     height: 20,
                     thickness: 1,
                     indent: 0,
                     endIndent: 0,
                   ),
                   GestureDetector(
-                    onTap: () => log('product Info click'),
+                    onTap: () => {
+                      Navigator.pushNamed(
+                        context,
+                        '/product-info',
+                        arguments: product,
+                      ),
+                    },
                     child: Text(
                       'Информация о товаре'.toUpperCase(),
                       style: TextStyle(
@@ -147,8 +152,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
           ],
         ),
       ),
-      backgroundColor: Color(0xff000000),
-      drawerScrimColor: Color(0xff000000),
+      backgroundColor: MyColors.black,
+      drawerScrimColor: MyColors.black,
     );
   }
 

@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'dart:ui';
 
+import 'package:asos_clone/consts/MyColors.dart';
 import 'package:flutter/material.dart';
 
 // typedef IndexCallback = void Function(int index);
@@ -18,7 +19,7 @@ class ProductDetailSizePicker extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        color: Color(0xff000000),
+        color: MyColors.black,
         child: Column(
           children: [
             Flex(
@@ -34,7 +35,7 @@ class ProductDetailSizePicker extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    color: Color(0xff2d2d2d),
+                    color: MyColors.appBarGray,
                   ),
                 ),
               ],

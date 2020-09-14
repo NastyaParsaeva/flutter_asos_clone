@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:asos_clone/consts/MyColors.dart';
 import 'package:asos_clone/screens/product-details/product-details-screen.dart';
 import 'package:flutter/material.dart';
 
@@ -12,15 +13,14 @@ class ProductListItem extends StatelessWidget {
     return GestureDetector(
       onTap: () => {
         debugPrint('item "${this.product.id}" clicked'),
-        // Navigator.pushNamed(context, '/product'),
         Navigator.pushNamed(
           context,
-          ProductDetailsScreen.routeName,
+          '/product-details',
           arguments: this.product,
         ),
       },
       child: Card(
-        color: Color(0xff111111),
+        color: MyColors.cartItemBlack,
         shadowColor: Colors.transparent,
         child: Column(
           children: [
@@ -53,6 +53,8 @@ class ProductListItem extends StatelessWidget {
                 color: Colors.white,
                 fontSize: 12,
               ),
+              maxLines: 3,
+              overflow: TextOverflow.ellipsis,
             ),
           ],
         ),
