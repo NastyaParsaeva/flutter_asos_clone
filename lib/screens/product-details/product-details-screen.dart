@@ -1,11 +1,21 @@
 import 'dart:developer';
 
 import 'package:asos_clone/screens/list-page/product-list-item.dart';
+import 'package:asos_clone/screens/product-details/product-details-picture.dart';
+import 'package:asos_clone/screens/product-details/product-details-size-picker.dart';
+import 'package:asos_clone/screens/product-details/product-details-size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class ProductDetailsScreen extends StatelessWidget {
+class ProductDetailsScreen extends StatefulWidget {
   static const routeName = '/product';
+
+  @override
+  _ProductDetailsScreenState createState() => _ProductDetailsScreenState();
+}
+
+class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
+  int _selectedSizeIndex = -1;
 
   @override
   Widget build(BuildContext context) {
@@ -15,30 +25,10 @@ class ProductDetailsScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Stack(
-              children: [
-                Image(
-                  image: NetworkImage(product.imageUrl),
-                  width: 2000,
-                  fit: BoxFit.cover,
-                ),
-                AppBar(
-                  backgroundColor: Colors.transparent,
-                  shadowColor: Colors.transparent,
-                  leading: BackButton(
-                    color: Color(0xff000000),
-                    onPressed: () => {Navigator.pop(context)},
-                  ),
-                  actions: [
-                    IconButton(
-                        icon: Icon(
-                          Icons.share,
-                          color: Color(0xff000000),
-                        ),
-                        onPressed: () => {log('share product')})
-                  ],
-                )
-              ],
+            ProductDetailsPicture(
+              productImages: [product.imageUrl],
+              onBackClick: () => {Navigator.pop(context)},
+              onShareClick: () => {log('share product from details')},
             ),
             Padding(
               padding: EdgeInsets.fromLTRB(15, 15, 15, 0),
@@ -78,7 +68,7 @@ class ProductDetailsScreen extends StatelessWidget {
                         child: Text(
                           product.color.toUpperCase(),
                           style: TextStyle(
-                            color: Colors.white,
+                            color: Color(0xff999999),
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -92,12 +82,10 @@ class ProductDetailsScreen extends StatelessWidget {
                             indent: 0,
                             endIndent: 0,
                           )),
-                      Expanded(
-                        child: Text(product.size.toString(),
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            )),
+                      ProductDetailsSize(
+                        sizeList: product.sizeList,
+                        selectedSizeIndex: _selectedSizeIndex,
+                        onSizePress: () => onSizePress(product),
                       ),
                     ],
                   ),
@@ -160,6 +148,22 @@ class ProductDetailsScreen extends StatelessWidget {
         ),
       ),
       backgroundColor: Color(0xff000000),
+      drawerScrimColor: Color(0xff000000),
+    );
+  }
+
+  void onSizePress(ProductListItemType product) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) => ProductDetailSizePicker(
+        sizeList: product.sizeList,
+        onSizeSelect: (int index) => {
+          setState(() {
+            this._selectedSizeIndex = index;
+          }),
+          Navigator.pop(context),
+        },
+      ),
     );
   }
 }

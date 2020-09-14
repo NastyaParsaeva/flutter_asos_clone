@@ -68,7 +68,7 @@ class ProductListItemType {
   String imageUrl;
   bool isFavorited;
   String color;
-  String size;
+  List<String> sizeList;
   String productDetails;
 
   ProductListItemType(
@@ -78,6 +78,6 @@ class ProductListItemType {
       this.imageUrl,
       this.isFavorited,
       this.color,
-      this.size,
+      this.sizeList,
       this.productDetails});
 }

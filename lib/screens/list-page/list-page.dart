@@ -17,7 +17,7 @@ class ListPage extends StatelessWidget {
               'https://images.asos-media.com/products/pritalennoe-chajnoe-plate-s-tsvetochnym-printom-john-zack-petite/21192751-1-multi',
           isFavorited: true,
           color: 'Черный/белый/цветочный принт',
-          size: '38',
+          sizeList: ['36', '38', '38/40', '40', '42/44', '46', '48', '50'],
           productDetails:
               'Гладкая ткань. Легкий и воздушный дизайн. Материал: 100% полиэстер.'),
       new ProductListItemType(
@@ -29,7 +29,7 @@ class ListPage extends StatelessWidget {
               'http://images.asos-media.com/products/blestyaschee-atlasnoe-plate-kombinatsiya-mini-so-shnurovkoj-na-spine-asos-design/20041579-1-black',
           isFavorited: false,
           color: 'Синий',
-          size: '38-40',
+          sizeList: ['XS - 40', 'S - 42/44', 'M - 46', 'L - 48', 'XL - 50'],
           productDetails:
               'Гладкая ткань. Легкий и воздушный дизайн. Материал: 100% полиэстер.'),
       new ProductListItemType(
@@ -41,7 +41,14 @@ class ListPage extends StatelessWidget {
               'http://images.asos-media.com/products/chernoe-oblegayuschee-plate-midi-s-kontrastnymi-remeshkami-asos-design/20493693-1-mono',
           isFavorited: false,
           color: 'Ярко-оранжевый',
-          size: '50',
+          sizeList: [
+            'XXS - 38/40',
+            'XS - 40',
+            'S - 42/44',
+            'M - 46',
+            'L - 48',
+            'XL - 50'
+          ],
           productDetails:
               'Гладкая ткань. Легкий и воздушный дизайн. Материал: 100% полиэстер.'),
       new ProductListItemType(
@@ -52,7 +59,7 @@ class ListPage extends StatelessWidget {
               'https://images.asos-media.com/products/atlasnoe-plate-maksi-s-tsvetochnym-printom-asos-edition/14563661-1-multi',
           isFavorited: false,
           color: 'Яркий цветочный принт',
-          size: '54',
+          sizeList: ['XS', 'S', 'M', 'L', 'XL'],
           productDetails:
               'Гладкая ткань. Легкий и воздушный дизайн. Материал: 100% полиэстер.'),
       new ProductListItemType(
@@ -63,7 +70,15 @@ class ListPage extends StatelessWidget {
               'https://images.asos-media.com/products/plate-maksi-s-platochnym-printom-john-zack/21188039-1-multi',
           isFavorited: true,
           color: 'Мульти',
-          size: 'EU 34',
+          sizeList: [
+            'EU 32',
+            'EU 34',
+            'EU 36',
+            'EU 38',
+            'EU 40',
+            'EU 42',
+            'EU 44'
+          ],
           productDetails:
               'Гладкая ткань. Легкий и воздушный дизайн. Материал: 100% полиэстер.'),
       new ProductListItemType(
@@ -74,7 +89,7 @@ class ListPage extends StatelessWidget {
               'https://images.asos-media.com/products/krasnoe-plate-midaksis-oborkaminever-fully-dressed/20931336-1-redmulti',
           isFavorited: true,
           color: 'Dusty mint',
-          size: 'EU 34',
+          sizeList: ['38/40', '40', '42/44', '46', '48', '50'],
           productDetails:
               'Гладкая ткань. Легкий и воздушный дизайн. Материал: 100% полиэстер.'),
       new ProductListItemType(
@@ -86,7 +101,7 @@ class ListPage extends StatelessWidget {
               'https://images.asos-media.com/products/svobodnoe-korichnevoe-plate-iz-organzy-s-tsvetochnym-printom-object/20545782-1-multi',
           isFavorited: true,
           color: 'Мульти',
-          size: '40',
+          sizeList: null,
           productDetails:
               'Гладкая ткань. Легкий и воздушный дизайн. Материал: 100% полиэстер.'),
     ];
