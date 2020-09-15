@@ -1,15 +1,16 @@
+import 'dart:developer';
 import 'dart:ui';
 import 'package:asos_clone/consts/MyColors.dart';
-import 'package:asos_clone/screens/product-details/product-details-screen.dart';
+import 'package:asos_clone/models/Product.dart';
 import 'package:flutter/material.dart';
 
 class ProductListItem extends StatelessWidget {
-  final ProductListItemType product;
+  final Product product;
   ProductListItem({this.product});
 
   @override
   Widget build(BuildContext context) {
-    debugPrint(this.product.toString());
+    log(this.product.toString());
     return GestureDetector(
       onTap: () => {
         debugPrint('item "${this.product.id}" clicked'),
@@ -29,7 +30,7 @@ class ProductListItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  this.product.price,
+                  this.product.price.toString(),
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 12,

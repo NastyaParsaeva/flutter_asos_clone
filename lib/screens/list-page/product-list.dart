@@ -1,13 +1,17 @@
+import 'dart:developer';
+
+import 'package:asos_clone/models/Product.dart';
 import 'package:flutter/material.dart';
 import 'product-list-item.dart';
 
 class ProductList extends StatelessWidget {
-  final List<ProductListItemType> products;
+  final List<Product> products;
 
   ProductList({this.products});
 
   @override
   Widget build(BuildContext context) {
+    log(this.products.toString());
     return Container(
       child: GridView.count(
         scrollDirection: Axis.vertical,
