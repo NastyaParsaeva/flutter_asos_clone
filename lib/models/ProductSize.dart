@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 class ProductSize {
   final String sizeName;
   final bool available;
@@ -7,7 +5,6 @@ class ProductSize {
   ProductSize({this.sizeName, this.available});
 
   factory ProductSize.fromJson(Map<String, dynamic> json) {
-    log(json.toString());
     return json == null
         ? null
         : ProductSize(

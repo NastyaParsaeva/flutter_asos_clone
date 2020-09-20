@@ -8,6 +8,5 @@ class MyColors {
   static const Color dividerGray = Color(0xff525050);
   static const Color disabledGray = Color(0xff999999);
   static const Color green = Color(0xff018849);
-
-// color: Color(0xff2d2d2d),
+  static const Color red = Color(0xffBF0A30);
 }

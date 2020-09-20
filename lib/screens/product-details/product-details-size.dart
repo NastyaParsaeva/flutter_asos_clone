@@ -1,10 +1,9 @@
-import 'dart:developer';
-
 import 'package:asos_clone/consts/MyColors.dart';
+import 'package:asos_clone/models/ProductSize.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailsSize extends StatelessWidget {
-  final List<String> sizeList;
+  final List<ProductSize> sizeList;
   final int selectedSizeIndex;
   final Function onSizePress;
 
@@ -52,6 +51,6 @@ class ProductDetailsSize extends StatelessWidget {
     } else if (selectedSizeIndex == -1) {
       return 'РАЗМЕР';
     }
-    return sizeList[selectedSizeIndex];
+    return sizeList[selectedSizeIndex].sizeName;
   }
 }

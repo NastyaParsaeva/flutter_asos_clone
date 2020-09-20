@@ -2,12 +2,11 @@ import 'dart:developer';
 import 'dart:ui';
 
 import 'package:asos_clone/consts/MyColors.dart';
+import 'package:asos_clone/models/ProductSize.dart';
 import 'package:flutter/material.dart';
 
-// typedef IndexCallback = void Function(int index);
-
 class ProductDetailSizePicker extends StatelessWidget {
-  final List<String> sizeList;
+  final List<ProductSize> sizeList;
   final void Function(int index) onSizeSelect;
 
   ProductDetailSizePicker({
@@ -43,14 +42,18 @@ class ProductDetailSizePicker extends StatelessWidget {
             ListView.builder(
               itemCount: this.sizeList?.length,
               shrinkWrap: true,
-              // itemExtent: 40,
               padding: EdgeInsets.all(0),
               itemBuilder: (context, index) {
                 return ListTile(
                     contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                     title: Text(
-                      sizeList[index],
-                      style: TextStyle(color: Colors.white),
+                      sizeList[index].sizeName,
+                      style: sizeList[index].available
+                          ? TextStyle(color: MyColors.white)
+                          : TextStyle(
+                              color: MyColors.red,
+                              decoration: TextDecoration.lineThrough,
+                            ),
                     ),
                     onTap: () {
                       onSizeSelect(index);

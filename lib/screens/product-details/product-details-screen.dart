@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:asos_clone/consts/MyColors.dart';
-import 'package:asos_clone/screens/list-page/product-list-item.dart';
+import 'package:asos_clone/models/Product.dart';
 import 'package:asos_clone/screens/product-details/product-details-picture.dart';
 import 'package:asos_clone/screens/product-details/product-details-size-picker.dart';
 import 'package:asos_clone/screens/product-details/product-details-size.dart';
@@ -18,8 +18,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final ProductListItemType product =
-        ModalRoute.of(context).settings.arguments;
+    final Product product = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -44,7 +43,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   Padding(
                     padding: EdgeInsets.only(top: 10),
                     child: Text(
-                      product.price,
+                      product.price.toString(),
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -157,7 +156,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
     );
   }
 
-  void onSizePress(ProductListItemType product) {
+  void onSizePress(Product product) {
     showModalBottomSheet(
       context: context,
       builder: (context) => ProductDetailSizePicker(
