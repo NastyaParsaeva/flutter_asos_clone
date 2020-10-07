@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:asos_clone/common/my-app-bar.dart';
+import 'package:asos_clone/common/my-app-drawer.dart';
 import 'package:asos_clone/consts/MyColors.dart';
 import 'package:asos_clone/models/Product.dart';
 import 'package:asos_clone/screens/list-page/product-list.dart';
@@ -30,6 +31,7 @@ class ListPage extends StatefulWidget {
 
 class _ListPageState extends State<ListPage> {
   Future<List<Product>> futureProductList;
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
@@ -40,14 +42,19 @@ class _ListPageState extends State<ListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: MyAppBar(
         titleText: 'Новинки: одежда',
         leading: IconButton(
-            icon: Icon(Icons.menu), onPressed: () => {log('menu click')}),
+          icon: Icon(Icons.menu),
+          onPressed: () => {
+            _scaffoldKey.currentState.openDrawer(),
+          },
+        ),
         actions: [
           IconButton(
             icon: Icon(Icons.favorite_border),
-            onPressed: () => {log('open wishlist')},
+            onPressed: () => {Navigator.pushNamed(context, '/wishlist')},
           ),
           IconButton(
             icon: Icon(Icons.search),
@@ -55,6 +62,7 @@ class _ListPageState extends State<ListPage> {
           ),
         ],
       ),
+      drawer: MyAppDrawer(),
       body: FutureBuilder(
           future: futureProductList,
           builder: (context, snapshot) {

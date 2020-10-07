@@ -10,7 +10,6 @@ class ProductListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    log(this.product.toString());
     return GestureDetector(
       onTap: () => {
         debugPrint('item "${this.product.id}" clicked'),
